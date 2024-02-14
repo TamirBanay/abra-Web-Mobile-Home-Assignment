@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login,logout
-from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
