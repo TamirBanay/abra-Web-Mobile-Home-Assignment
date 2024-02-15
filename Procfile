@@ -1,2 +1,1 @@
-release: python manage.py migrate
-web: gunicorn abra_project.abra_project.wsgi 
+web: bundle exec rails server -p $PORT
