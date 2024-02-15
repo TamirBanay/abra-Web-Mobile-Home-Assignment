@@ -1,1 +1,2 @@
-web: bundle exec rails server -p $PORT
+web: gunicorn abra_project.wsgi --log-file -
+``
