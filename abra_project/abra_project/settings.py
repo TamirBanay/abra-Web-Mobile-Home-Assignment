@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'abra_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'abraPoject',
-        'USER': 'root',
-        'PASSWORD': "tamirsapir055",
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6o7ho96larsnr',
+        'USER': 'mphorwzxpvbjpt',
+        'PASSWORD': "a855a18d5302a42145494083170f80752751413f431ffe59d235021191875405",
+        'HOST': 'ec2-3-210-218-157.compute-1.amazonaws.com',
+        'PORT': '5432',
     },
 }
 
