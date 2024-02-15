@@ -11,7 +11,6 @@ from rest_framework.views import APIView
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def write_message(request):
-    # request.user is the sender and is already authenticated
     serializer = MessageSerializer(data=request.data, context={'request': request})
     if serializer.is_valid():
         serializer.save(sender=request.user)
