@@ -47,3 +47,14 @@ class ReadMessageOfLoggedInUserView(APIView):
         message.save(update_fields=['read'])
         serializer = MessageSerializer(message)
         return Response(serializer.data)
+
+
+from django.db.models import Q
+
+class DeleteMessageView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, message_id, *args, **kwargs):
+        message = get_object_or_404(Message, Q(sender=request.user) | Q(receiver=request.user), id=message_id)
+        message.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
