@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-d%311m7*=@yi5t(8e+%$22%at)b)plcll7t5hj#!l)!c-hw9@r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abra-project.onrender.com']
+ALLOWED_HOSTS = ['abraproject-19db0c2fa643.herokuapp.com']
 
 
 # Application definition
