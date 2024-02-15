@@ -5,6 +5,7 @@ from rest_framework import status
 from .serializers import MessageSerializer
 from .models import Message
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 
 
 
@@ -34,4 +35,15 @@ class GetUnreadMessagesView(APIView):
     def get(self, request, *args, **kwargs):
         unread_messages = Message.objects.filter(receiver=request.user, read=False)
         serializer = MessageSerializer(unread_messages, many=True)
+        return Response(serializer.data)
+
+
+class ReadMessageOfLoggedInUserView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, message_id, *args, **kwargs):
+        message = get_object_or_404(Message, id=message_id, receiver=request.user)
+        message.read = True
+        message.save(update_fields=['read'])
+        serializer = MessageSerializer(message)
         return Response(serializer.data)
