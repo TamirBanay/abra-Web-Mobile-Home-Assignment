@@ -26,3 +26,12 @@ class GetAllMessagesView(APIView):
         messages = Message.objects.filter(receiver=request.user)
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data)
+    
+    
+class GetUnreadMessagesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        unread_messages = Message.objects.filter(receiver=request.user, read=False)
+        serializer = MessageSerializer(unread_messages, many=True)
+        return Response(serializer.data)
