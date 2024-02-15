@@ -1,1 +1,1 @@
-web: gunicorn abra_project.wsgi --log-file -
+web: gunicorn abra_project.wsgi 
